@@ -1,17 +1,12 @@
 pipeline:
     test:
-        image: mongo:3.0
+        image: mongo:3.2.10
         commands:
             - sleep 20
             - |
-              mongo --host mongo --eval "{ ping: 1 }"
-    build:
-        image: node:4.4.7
-        commands:
-            - npm --version
-            
+              mongo --host mongo --eval "{ ping: 1 }"            
         
 services:
     mongo:
-        image: mongo:3.0        
+        image: mongo:3.2.10
         command: [ --smallfiles ]
